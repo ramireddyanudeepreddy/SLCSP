@@ -71,9 +71,9 @@ public class CalculateSlcsp {
 		System.out.println(args.length);
 		String codePath = System.getProperty("user.dir");
 		System.out.println(codePath);
-		String planFile = codePath+"/src/data/plans.csv";
-		String zipFile = codePath+"/src/data/zips.csv";
-		String slcspFile = codePath+"/src/data/slcsp.csv";
+		String planFile =  args.length > 0 ? args[0] : codePath+"/src/data/plans.csv";
+		String zipFile = args.length > 1 ? args[1] : codePath+"/src/data/zips.csv";
+		String slcspFile = args.length > 2 ? args[2] : codePath+"/src/data/slcsp.csv";
 		Map<String, SortedSet<Double>> plans = readPlans(planFile);
 		Map<String, String> zips = readZips(zipFile);
 		updateSLCSP(plans, zips, slcspFile);
